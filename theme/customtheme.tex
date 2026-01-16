@@ -1,0 +1,79 @@
+% ============================================
+% CUSTOM BEAMER THEME
+% ============================================
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Frame title
+\setbeamertemplate{frametitle}{
+  \vspace{0.5em}
+  \insertframetitle
+  \vspace{-0.5em}
+}
+
+% Title page
+\setbeamertemplate{title page}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[primary] (current page.north west) rectangle ([yshift=-3cm]current page.north east);
+  \end{tikzpicture}
+  
+  \vfill
+  \begin{centering}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+    \vskip0.5em
+    {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+    \vskip2em
+    {\usebeamerfont{author}\insertauthor\par}
+    \vskip0.5em
+    {\usebeamerfont{institute}\insertinstitute\par}
+    \vskip1em
+    {\usebeamerfont{date}\insertdate\par}
+  \end{centering}
+  \vfill
+}
+
+% Footline with page numbers
+\setbeamertemplate{footline}{
+  \hbox{%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left,leftskip=1em]{footline}%
+      \insertshortauthor\ |\ \insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,right,rightskip=1em]{footline}%
+      \insertframenumber{} / \inserttotalframenumber
+    \end{beamercolorbox}%
+  }
+  \vskip0pt
+}
+
+% Apply colors
+\setbeamercolor{structure}{fg=primary}
+\setbeamercolor{title}{fg=lighttext}
+\setbeamercolor{subtitle}{fg=lighttext}
+\setbeamercolor{frametitle}{fg=primary}
+\setbeamercolor{footline}{fg=textcolor,bg=blockbg}
+
+% Blocks
+\setbeamercolor{block title}{fg=lighttext,bg=primary}
+\setbeamercolor{block body}{fg=textcolor,bg=blockbg}
+\setbeamercolor{block title alerted}{fg=lighttext,bg=alertcolor}
+\setbeamercolor{block body alerted}{fg=textcolor,bg=blockbg}
+\setbeamercolor{block title example}{fg=lighttext,bg=examplecolor}
+\setbeamercolor{block body example}{fg=textcolor,bg=blockbg}
+
+% Items
+\setbeamercolor{item}{fg=secondary}
+\setbeamercolor{subitem}{fg=tertiary}
+
+% Fonts
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{block title}{series=\bfseries}
+
+% Item shapes
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
